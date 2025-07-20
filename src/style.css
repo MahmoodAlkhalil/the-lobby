@@ -1,11 +1,56 @@
 @import "tailwindcss";
 
+html {
+  color-scheme: dark;
+}
+
 :root {
-  font-family: "Lekton", monospace;
+  font-family: "Jersey 25", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+li::marker {
+  content: "› ";
+  font-size: var(--text-2xl);
+}
+
+.neon {
+  color: var(--color-lime-500);
+  @apply tracking-tighter;
+  text-shadow:
+    0 0 1px var(--color-lime-200),
+    0 0 5px var(--color-lime-500),
+    0 0 10px var(--color-lime-900);
+}
+
+.flicker-1 {
+  animation: flicker 5s linear infinite;
+}
+.flicker-2 {
+  animation: flicker 3s linear infinite;
+}
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 0.99;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0;
+  }
 }
