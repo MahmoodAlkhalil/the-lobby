@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lobby</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body class="h-dvh w-dvw bg-slate-900">
+    <audio id="typing-aduio" autoplay loop src="/typing.mp3"></audio>
+    <div class="flex flex-col justify-center p-3 size-full z-10">
+      <div
+        class="neon text-4xl sm:text-5xl flex flex-row w-full justify-center border-lime-500 border-2 p-1"
+      >
+        <span class="flicker-1 pr-2">»</span>
+        <div class="flex flex-row gap-1 pr-4">
+          <span>T</span>
+          <span>H</span>
+          <span>E</span>
+        </div>
+        <div class="flex flex-row gap-1 pr-2">
+          <span>L</span>
+          <span>O</span>
+          <span>B</span>
+          <span>B</span>
+          <span>Y</span>
+        </div>
+        <span class="flicker-2">«</span>
+      </div>
+      <div
+        class="h-full w-full border-r-2 border-l-2 border-b-2 border-lime-500"
+      >
+        <div class="h-full w-full pr-4 pl-4 pt-2 pb-2 overflow-y-auto">
+          <ul
+            id="terminal"
+            class="flex flex-col gap-2 dark:text-lime-500 text-2xl tracking-wider list-inside"
+          ></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
