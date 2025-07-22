@@ -14,11 +14,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-li::marker {
-  content: "› ";
-  font-size: var(--text-2xl);
-}
-
 .neon {
   color: var(--color-lime-500);
   @apply tracking-tighter;
@@ -28,29 +23,164 @@ li::marker {
     0 0 10px var(--color-lime-900);
 }
 
-.flicker-1 {
-  animation: flicker 5s linear infinite;
+li::marker {
+  content: "› ";
+  font-size: var(--text-2xl);
 }
-.flicker-2 {
-  animation: flicker 3s linear infinite;
+
+.cursor-blink {
+  animation: cursor_blink 800ms linear infinite;
 }
-@keyframes flicker {
-  0%,
-  19.999%,
-  22%,
-  62.999%,
-  64%,
-  64.999%,
-  70%,
-  100% {
-    opacity: 0.99;
-  }
-  20%,
-  21.999%,
-  63%,
-  63.999%,
-  65%,
-  69.999% {
+
+@keyframes cursor_blink {
+  0% {
     opacity: 0;
+  }
+  0.99% {
+    opacity: 1;
+  }
+  49.99% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  border-right: 2px solid var(--color-lime-500);
+  border-left: 2px solid var(--color-lime-500);
+  right: 0;
+  top: 0;
+  width: 100vw;
+  animation-name: border-100vh-collapse;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes border-100vh-collapse {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+#title-container::before {
+  content: "";
+  position: absolute;
+  border-top: 2px solid var(--color-lime-500);
+  border-bottom: 2px solid var(--color-lime-500);
+  right: 0;
+  top: 0;
+  height: 100%;
+  animation-name: border-width-collapse;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+#terminal-input-container::before {
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid var(--color-lime-500);
+  border-top: 2px solid var(--color-lime-500);
+  height: 100%;
+  right: 0;
+  top: 0;
+  animation-name: border-width-collapse;
+  animation-duration: 200ms;
+  animation-delay: 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+#terminal-input-form {
+  opacity: 0;
+  animation: flicker-on;
+  animation-fill-mode: forwards;
+  animation-delay: 600ms;
+  animation-duration: 1000ms;
+}
+
+@keyframes border-width-collapse {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.flicker-on {
+  opacity: 0;
+  animation: flicker-on 900ms linear;
+  animation-delay: 100ms;
+  animation-fill-mode: forwards;
+}
+@keyframes flicker-on {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  35% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  45% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  55% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  65% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
