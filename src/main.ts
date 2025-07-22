@@ -21,21 +21,26 @@ terminal_cursor.className = "cursor-blink text-xl";
 let last_text_index = 0;
 let last_list_element_id = 0;
 
-try {
-  const response = await fetch("/terminal-text.json");
-  if (!response.ok) {
-    throw new Error("Failed to load the JSON file");
-  }
-  const text = await response.json();
-  const stage_1 = type_into_terminal(text[0]);
-  const stage_2 = stage_1.then(() => type_into_terminal(text[1]));
-  const stage_3 = stage_2.then(() => type_into_terminal(text[2]));
-  const stage_4 = stage_3.then(() => type_into_terminal(text[3]));
-  stage_4.then(() => type_into_terminal([""]));
-} catch (error) {}
+document.fonts.ready.then(async function () {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  (document.getElementById("loading") as HTMLDivElement).style.visibility =
+    "hidden";
+  try {
+    const response = await fetch("/terminal-text.json");
+    if (!response.ok) {
+      throw new Error("Failed to load the JSON file");
+    }
+    const text = await response.json();
+    const stage_1 = type_into_terminal(text[0]);
+    const stage_2 = stage_1.then(() => type_into_terminal(text[1]));
+    const stage_3 = stage_2.then(() => type_into_terminal(text[2]));
+    const stage_4 = stage_3.then(() => type_into_terminal(text[3]));
+    stage_4.then(() => type_into_terminal([""]));
+  } catch (error) {}
+});
 
 function type_into_terminal(terminal_input: string[]) {
-  // typing_audio.play();
+  typing_audio.play();
   last_list_element_id++;
   const terminal_line: HTMLDivElement = document.createElement("div");
   terminal_line.id = `terminal-line-${last_list_element_id}`;
@@ -58,7 +63,7 @@ async function append_to_terminal(terminal_input: string[]) {
     terminal_output_container.scrollTop =
       terminal_output_container.scrollHeight;
     await new Promise((resolve) =>
-      setTimeout(resolve, generate_random_timeout_val(0))
+      setTimeout(resolve, generate_random_timeout_val(50))
     );
   }
   last_text_index = 0;
