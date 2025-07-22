@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Lobby</title>
   <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-CCvlkFe7.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CI8Au1w1.css">
+  <script type="module" crossorigin src="/assets/index-BksoCfSS.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cx7p42Ei.css">
 </head>
 
 <body class="relative border-lime-500 h-dvh w-dvw bg-stone-900">
   <audio id="typing-audio" src="/typing.mp3" loop></audio>
-  <div id="loading"
+  <!-- <div id="loading"
     class="hidden fixed flex flex-row flex-nowrap justify-center items-center z-20 top-0 left-0 h-dvh w-dvw text-6xl text-lime-500 bg-stone-950">
     <div id="wave-text">
       <span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span>
     </div>
-  </div>
+  </div> -->
   <div id="terminal-container" class="flex flex-col flex-nowrap content-evenly size-full">
     <div id="title-container" class=" relative max-h-15 w-full">
       <div id="title"
@@ -38,14 +38,14 @@
         <span>«</span>
       </div>
     </div>
-    <div id="terminal-output-container" class="flex-grow relative overflow-auto">
-      <div id="terminal" class="flex flex-col gap-1 pr-5 pl-5 pt-2 pb-2 dark:text-lime-500 text-xl">
+    <div id="terminal-output-container" class="flex-1 relative overflow-auto">
+      <div id="terminal" class="min-h-full flex flex-col-reverse gap-1 pr-5 pl-5 pt-2 pb-2 dark:text-lime-500 text-xl">
       </div>
     </div>
     <div id="terminal-input-container" class="max-h-15 w-full relative border-lime-500">
       <form id="terminal-input-form" class="flex flex-row flex-nowrap items-center size-full">
         <label for="terminal-input" class="pl-5 pr-2 text-4xl text-lime-500">»</label>
-        <input type="text" id="terminal-input" name="Terminal Input" style="caret-shape:block"
+        <input type="text" inputmode="latin" id="terminal-input" name="Terminal Input" style="caret-shape:block"
           class="size-full pl-2 pr-4 caret-lime-500 text-2xl focus:outline-none" />
       </form>
     </div>
