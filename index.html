@@ -38,14 +38,14 @@
         <span>«</span>
       </div>
     </div>
-    <div id="terminal-output-container" class="flex-grow relative overflow-auto">
-      <div id="terminal" class="flex flex-col gap-1 pr-5 pl-5 pt-2 pb-2 dark:text-lime-500 text-xl">
+    <div id="terminal-output-container" class="flex-1 relative overflow-auto">
+      <div id="terminal" class="min-h-full flex flex-col-reverse gap-1 pr-5 pl-5 pt-2 pb-2 dark:text-lime-500 text-xl">
       </div>
     </div>
     <div id="terminal-input-container" class="max-h-15 w-full relative border-lime-500">
       <form id="terminal-input-form" class="flex flex-row flex-nowrap items-center size-full">
         <label for="terminal-input" class="pl-5 pr-2 text-4xl text-lime-500">»</label>
-        <input type="text" id="terminal-input" name="Terminal Input" style="caret-shape:block"
+        <input type="text" inputmode="latin" id="terminal-input" name="Terminal Input" style="caret-shape:block"
           class="size-full pl-2 pr-4 caret-lime-500 text-2xl focus:outline-none" />
       </form>
     </div>
